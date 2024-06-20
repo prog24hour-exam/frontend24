@@ -7,10 +7,10 @@ export default function NavHeader() {
 
   return (
     <>
-      <div className="navbar text-quaternary">
+      <div className="navbar bg-base-100">
         {/* center of navbar */}
-        <div className="text-sm breadcrumbs">
-          <ul>
+        <div className="">
+          <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
             {/* only show these links if admin is logged in */}
             {isLoggedInAs(['ADMIN']) && (
               <>
