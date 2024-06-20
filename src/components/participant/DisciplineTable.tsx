@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { DisciplineDto } from '../types'
-import ApiClient from '../api/ApiClient'
+import { DisciplineDto } from '../../types'
+import ApiClient from '../../api/ApiClient'
 
 const apiClient = new ApiClient<DisciplineDto>(localStorage.getItem('token') ?? '')
 

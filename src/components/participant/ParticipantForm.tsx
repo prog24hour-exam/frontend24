@@ -1,7 +1,7 @@
 import { useForm, Controller } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
-import { DisciplineDto, ParticipantDto } from '../types'
-import ApiClient from '../api/ApiClient'
+import { DisciplineDto, ParticipantDto } from '../../types'
+import ApiClient from '../../api/ApiClient'
 import DisciplineTable from './DisciplineTable'
 import { useState } from 'react'
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { ParticipantDto, DisciplineDto } from '../types'
-import ApiClient from '../api/ApiClient'
+import { ParticipantDto, DisciplineDto } from '../../types'
+import ApiClient from '../../api/ApiClient'
 import DisciplineTable from './DisciplineTable'
 import { Link } from 'react-router-dom'
 
@@ -60,7 +60,7 @@ export default function ParticipantTable() {
                 <Link to={`/participants/${participant.id}`} className="btn btn-primary btn-sm mr-2">
                   Edit
                 </Link>
-                <button className="btn btn-secondary btn-sm" onClick={() => handleRemoveDiscipline(participant)}>
+                <button className="btn btn-secondary btn-sm" onClick={() => handleRemoveDiscipline}>
                   Delete
                 </button>
               </td>

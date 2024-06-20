@@ -1,12 +1,12 @@
-import ParticipantForm from '../components/ParticipantForm'
-import ParticipantTable from '../components/ParticipantTable'
+import ParticipantForm from '../components/participant/ParticipantForm'
+import ParticipantTable from '../components/participant/ParticipantTable'
 
 export default function ParticipantPage() {
   return (
     <div>
       <h1>Welcome to the Participant Page</h1>
-      <ParticipantForm participant={null} />
       <ParticipantTable />
+      <ParticipantForm participant={null} />
     </div>
   )
 }
