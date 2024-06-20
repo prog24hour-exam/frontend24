@@ -1,4 +1,3 @@
-// ApiClient.ts
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

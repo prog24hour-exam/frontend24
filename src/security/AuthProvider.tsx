@@ -1,12 +1,11 @@
 import { createContext, useState, ReactNode } from 'react'
-import { authProvider } from '../services/api/authAPI'
+import { authProvider } from '../api/authAPI'
 import { useContext } from 'react'
-import { LoginResponse, LoginRequest } from '../services/api/authAPI'
-import { User } from '../types'
+import { LoginResponse, LoginRequest } from '../api/authAPI'
 
 interface AuthContextType {
   email: string | null
-  signIn: (user: User) => Promise<LoginResponse>
+  signIn: (user: LoginRequest) => Promise<LoginResponse>
   signOut: () => void
   isLoggedIn: () => boolean
   isLoggedInAs: (role: string[]) => boolean

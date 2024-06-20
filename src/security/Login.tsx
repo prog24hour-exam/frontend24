@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from './AuthProvider'
 import { useLocation, useNavigate } from 'react-router-dom'
-import '../styles/components/login.css'
+import '../styles/login.css'
 
 const Login = () => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -33,15 +33,10 @@ const Login = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Admin login</h1>
-          <p className="py-6">
-            This is for Admins only, Please dont try to login in.
-          </p>
+          <p className="py-6">This is for Admins only, Please dont try to login in.</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 login-wrapper">
-          <form
-            className="card-body bg-custom-txt-colour rounded-xl login-form"
-            onSubmit={handleSubmit}
-          >
+          <form className="card-body bg-custom-txt-colour rounded-xl login-form" onSubmit={handleSubmit}>
             <div className="form-control login-form-group">
               <label className="label">
                 <span className="label-text text-custom-bg-colour">Email</span>
@@ -50,26 +45,20 @@ const Login = () => {
                 type="text"
                 name="email"
                 value={user.email}
-                onChange={(e) =>
-                  setUser((prev) => ({ ...prev, email: e.target.value }))
-                }
+                onChange={(e) => setUser((prev) => ({ ...prev, email: e.target.value }))}
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control login-form-group">
               <label className="label">
-                <span className="label-text text-custom-bg-colour">
-                  Password
-                </span>
+                <span className="label-text text-custom-bg-colour">Password</span>
               </label>
               <input
                 type="password"
                 name="password"
                 value={user.password}
-                onChange={(e) =>
-                  setUser((prev) => ({ ...prev, password: e.target.value }))
-                }
+                onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))}
                 className="input input-bordered"
                 required
               />
@@ -80,10 +69,7 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button
-                type="submit"
-                className="btn bg-custom-btn-colour text-custom-txt-colour login-btn"
-              >
+              <button type="submit" className="btn bg-custom-btn-colour text-custom-txt-colour login-btn">
                 Login
               </button>
             </div>
