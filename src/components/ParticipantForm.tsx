@@ -1,20 +1,28 @@
 import { useForm, Controller } from 'react-hook-form'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { ParticipantDto } from '../types'
-import { createParticipant } from '../api/participantAPI'
+import ApiClient from '../api/ApiClient'
 
 interface ParticipantFormProps {
   participant: ParticipantDto
 }
 
-export default function ParticipantForm({ participant }: ParticipantFormProps) {
-  const { handleSubmit, control, reset } = useForm<ParticipantDto>()
-  const queryClient = useQueryClient()
+const apiClient = new ApiClient<ParticipantDto>(localStorage.getItem('token') ?? '')
 
-  const mutation = useMutation(createParticipant, {
-    onSuccess: () => {
-      queryClient.invalidateQueries(['participants'])
-      reset()
+// create a form for creating a new participant and updating an existing participant
+
+export default function ParticipantForm({ participant }: ParticipantFormProps) {
+  const { handleSubmit, control } = useForm<ParticipantDto>({
+    defaultValues: participant,
+  })
+
+  const mutation = useMutation({
+    mutationFn: async (data: ParticipantDto) => {
+      if (participant.id) {
+        await apiClient.put<ParticipantDto>(`/api/participants/${participant.id}`, data)
+      } else {
+        await apiClient.post<ParticipantDto>('/api/participants', data)
+      }
     },
   })
 
@@ -97,13 +105,11 @@ export default function ParticipantForm({ participant }: ParticipantFormProps) {
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="Other">Other</option>
             </select>
           )}
         />
       </div>
       <button type="submit">Add Participant</button>
-      {mutation.isLoading && <p>Adding participant...</p>}
       {mutation.isError && <p>Error: {mutation.error.message}</p>}
     </form>
   )
