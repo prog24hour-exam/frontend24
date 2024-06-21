@@ -32,6 +32,14 @@ export default function ResultForm({ result }: ResultFormProps) {
 
   return (
     <div>
+      <div>
+        <button
+          onClick={() => setOpenForm(!openForm)}
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          {openForm ? 'Close Form' : 'Open Form'}
+        </button>
+      </div>
       {openForm && (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-8 bg-white shadow-lg rounded-lg">
           <div>
@@ -50,9 +58,9 @@ export default function ResultForm({ result }: ResultFormProps) {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Participant ID</label>
+            <label className="block text-sm font-medium text-gray-700">Participant</label>
             <Controller
-              name="participantId"
+              name="participant"
               control={control}
               defaultValue=""
               render={({ field }) => (
@@ -65,9 +73,9 @@ export default function ResultForm({ result }: ResultFormProps) {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Discipline ID</label>
+            <label className="block text-sm font-medium text-gray-700">Discipline</label>
             <Controller
-              name="disciplineId"
+              name="discipline"
               control={control}
               defaultValue=""
               render={({ field }) => (
@@ -121,14 +129,6 @@ export default function ResultForm({ result }: ResultFormProps) {
           </div>
         </form>
       )}
-      <div>
-        <button
-          onClick={() => setOpenForm(!openForm)}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        >
-          {openForm ? 'Close Form' : 'Open Form'}
-        </button>
-      </div>
     </div>
   )
 }
