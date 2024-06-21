@@ -1,9 +1,10 @@
 import { useForm, Controller } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
-import { DisciplineDto, ParticipantDto } from '../../types'
+import { ClubDto, DisciplineDto, ParticipantDto } from '../../types'
 import ApiClient from '../../api/ApiClient'
 import DisciplineTable from './DisciplineTable'
 import { useState } from 'react'
+import ClubTable from './ClubTable'
 
 interface ParticipantFormProps {
   participant: ParticipantDto | null
@@ -13,6 +14,7 @@ const apiClient = new ApiClient<ParticipantDto>(localStorage.getItem('token') ??
 
 export default function ParticipantForm({ participant }: ParticipantFormProps) {
   const [selectedDisciplines, setSelectedDisciplines] = useState<DisciplineDto[]>([])
+  const [selectedClub, setSelectedClub] = useState<ClubDto>()
   const [openForm, setOpenForm] = useState(false)
   const { handleSubmit, control } = useForm<ParticipantDto>({
     defaultValues: participant || undefined,
@@ -36,12 +38,32 @@ export default function ParticipantForm({ participant }: ParticipantFormProps) {
     setSelectedDisciplines(selectedDisciplines.filter((d) => d.id !== discipline.id))
   }
 
+  const handleAddClub = (club: ClubDto) => {
+    setSelectedClub(club)
+  }
+
+  const handleRemoveClub = () => {
+    setSelectedClub(undefined)
+  }
+
   const onSubmit = (data: ParticipantDto) => {
+    if (selectedClub) {
+      data.club = [selectedClub]
+    }
+    data.disciplines = selectedDisciplines
     mutation.mutate(data)
   }
 
   return (
     <div>
+      <div>
+        <button
+          onClick={() => setOpenForm(!openForm)}
+          className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          {openForm ? 'Close Form' : 'Open Form'}
+        </button>
+      </div>
       {openForm && (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-8 bg-white shadow-lg rounded-lg">
           <div>
@@ -176,6 +198,17 @@ export default function ParticipantForm({ participant }: ParticipantFormProps) {
               )}
             />
           </div>
+          <div>
+            <label>Clubs</label>
+            <Controller
+              name="club"
+              control={control}
+              defaultValue={selectedClub}
+              render={({ field }) => (
+                <ClubTable clubs={field.value} onAddClub={handleAddClub} onRemoveClub={handleRemoveClub} />
+              )}
+            />
+          </div>
 
           <button
             type="submit"
@@ -186,14 +219,6 @@ export default function ParticipantForm({ participant }: ParticipantFormProps) {
           {mutation.isError && <p className="mt-2 text-sm text-red-600">{mutation.error.message}</p>}
         </form>
       )}
-      <div>
-        <button
-          onClick={() => setOpenForm(!openForm)}
-          className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        >
-          {openForm ? 'Close Form' : 'Open Form'}
-        </button>
-      </div>
     </div>
   )
 }

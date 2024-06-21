@@ -8,6 +8,7 @@ const apiClient = new ApiClient<DisciplineDto>(localStorage.getItem('token') ?? 
 interface DisciplineTableProps {
   onAddDiscipline: (discipline: DisciplineDto) => void
   onRemoveDiscipline: (discipline: DisciplineDto) => void
+  disciplines: DisciplineDto[] | undefined
 }
 
 export default function DisciplineTable({ onAddDiscipline, onRemoveDiscipline }: DisciplineTableProps) {
@@ -37,6 +38,13 @@ export default function DisciplineTable({ onAddDiscipline, onRemoveDiscipline }:
 
   return (
     <div className="overflow-x-auto">
+      {selectedDiscipline && (
+        <div className="mt-4">
+          <button className="btn btn-success" onClick={handleAdd}>
+            Confirm Discipline {selectedDiscipline.name}
+          </button>
+        </div>
+      )}
       <table className="table w-full">
         <thead>
           <tr>
@@ -62,13 +70,6 @@ export default function DisciplineTable({ onAddDiscipline, onRemoveDiscipline }:
           ))}
         </tbody>
       </table>
-      {selectedDiscipline && (
-        <div className="mt-4">
-          <button className="btn btn-success" onClick={handleAdd}>
-            Confirm Add {selectedDiscipline.name}
-          </button>
-        </div>
-      )}
     </div>
   )
 }

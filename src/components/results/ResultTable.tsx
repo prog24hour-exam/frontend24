@@ -9,7 +9,7 @@ export default function ResultTable() {
   const { data, isLoading } = useQuery<ResultDto[]>({
     queryKey: ['results'],
     queryFn: async () => {
-      const response = await apiClient.get<ResultDto[]>('/api/result')
+      const response = await apiClient.get<ResultDto[]>('/api/participant/results')
       return response
     },
   })
@@ -27,18 +27,22 @@ export default function ResultTable() {
             <th>Participant name </th>
             <th>Participant ID</th>
             <th>Participant ageGroup</th>
+            <th>Discipline</th>
+            <th>Club</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {data?.map((result) => (
             <tr key={result.id}>
-              <td>{result.result}</td>
+              <td>{result.resultValue}</td>
               <td>
                 {result.participant?.firstName} {result.participant?.lastName}
               </td>
-              <td>{result.participantId}</td>
+              <td>{result.participant?.id}</td>
               <td>{result.participant?.ageGroup?.name}</td>
+              <td>{result.discipline?.name}</td>
+              <td>{result.participant?.club?.name}</td>
               <td>
                 <Link to={`/results/${result.id}`} className="btn btn-primary btn-sm mr-2">
                   Edit

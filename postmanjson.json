@@ -1,0 +1,382 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "birthDate": "1990-01-01",
+    "email": "john.doe@example.com",
+    "phone": "12345678",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Male",
+    "club": {
+      "id": 1,
+      "name": "New York Athletics Club",
+      "address": {
+        "id": 1,
+        "street": "Athletics Ave",
+        "streetNumber": 1,
+        "city": "New York",
+        "zipCode": "10001",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 1,
+        "name": "100m Sprint",
+        "description": "A short-distance sprint race in track and field.",
+        "resultType": {
+          "id": 1,
+          "unit": "seconds"
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "birthDate": "1985-05-15",
+    "email": "jane.smith@example.com",
+    "phone": "87654321",
+    "ageGroup": {
+      "id": 2,
+      "name": "Veteran",
+      "minAge": 36,
+      "maxAge": 50
+    },
+    "gender": "Female",
+    "club": {
+      "id": 2,
+      "name": "Los Angeles Runners Club",
+      "address": {
+        "id": 2,
+        "street": "Runner Rd",
+        "streetNumber": 123,
+        "city": "Los Angeles",
+        "zipCode": "90001",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 2,
+        "name": "Marathon",
+        "description": "A long-distance running race of 42.195 kilometers.",
+        "resultType": {
+          "id": 2,
+          "unit": "hours"
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "firstName": "Alice",
+    "lastName": "Brown",
+    "birthDate": "2000-11-30",
+    "email": "alice.brown@example.com",
+    "phone": "23456789",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Female",
+    "club": {
+      "id": 3,
+      "name": "Chicago Sprinters Club",
+      "address": {
+        "id": 3,
+        "street": "Sprint St",
+        "streetNumber": 456,
+        "city": "Chicago",
+        "zipCode": "60601",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 3,
+        "name": "High Jump",
+        "description": "An event where athletes jump over a horizontal bar at measured heights.",
+        "resultType": {
+          "id": 3,
+          "unit": "meters"
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "firstName": "Bob",
+    "lastName": "Williams",
+    "birthDate": "1995-03-22",
+    "email": "bob.williams@example.com",
+    "phone": "34567890",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Male",
+    "club": {
+      "id": 4,
+      "name": "Houston Marathon Club",
+      "address": {
+        "id": 4,
+        "street": "Marathon Blvd",
+        "streetNumber": 789,
+        "city": "Houston",
+        "zipCode": "77001",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 4,
+        "name": "Pole Vault",
+        "description": "An event where athletes use a pole to jump over a high bar.",
+        "resultType": {
+          "id": 3,
+          "unit": "meters"
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "firstName": "Chris",
+    "lastName": "Johnson",
+    "birthDate": "1992-07-13",
+    "email": "chris.johnson@example.com",
+    "phone": "45678901",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Male",
+    "club": {
+      "id": 5,
+      "name": "Phoenix Jumpers Club",
+      "address": {
+        "id": 5,
+        "street": "Jumper Ln",
+        "streetNumber": 101,
+        "city": "Phoenix",
+        "zipCode": "85001",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 5,
+        "name": "Long Jump",
+        "description": "An event where athletes sprint down a runway and jump as far as possible into a sandpit.",
+        "resultType": {
+          "id": 3,
+          "unit": "meters"
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "firstName": "Diana",
+    "lastName": "Lee",
+    "birthDate": "1988-09-25",
+    "email": "diana.lee@example.com",
+    "phone": "56789012",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Female",
+    "club": {
+      "id": 6,
+      "name": "Philadelphia Throwers Club",
+      "address": {
+        "id": 6,
+        "street": "Thrower St",
+        "streetNumber": 202,
+        "city": "Philadelphia",
+        "zipCode": "19101",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 6,
+        "name": "Discus Throw",
+        "description": "An event where athletes throw a heavy disc as far as possible.",
+        "resultType": {
+          "id": 4,
+          "unit": "meters"
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "firstName": "Eve",
+    "lastName": "Martinez",
+    "birthDate": "1993-12-17",
+    "email": "eve.martinez@example.com",
+    "phone": "67890123",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Female",
+    "club": {
+      "id": 7,
+      "name": "San Antonio Vaulters Club",
+      "address": {
+        "id": 7,
+        "street": "Vaulter Ave",
+        "streetNumber": 303,
+        "city": "San Antonio",
+        "zipCode": "78201",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 7,
+        "name": "Shot Put",
+        "description": "An event where athletes throw a heavy spherical object called a shot as far as possible.",
+        "resultType": {
+          "id": 4,
+          "unit": "meters"
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "firstName": "Frank",
+    "lastName": "Nguyen",
+    "birthDate": "1991-04-08",
+    "email": "frank.nguyen@example.com",
+    "phone": "78901234",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Male",
+    "club": {
+      "id": 8,
+      "name": "San Diego Decathlon Club",
+      "address": {
+        "id": 8,
+        "street": "Decathlon Rd",
+        "streetNumber": 404,
+        "city": "San Diego",
+        "zipCode": "92101",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 8,
+        "name": "Javelin Throw",
+        "description": "An event where athletes throw a spear-like object called a javelin as far as possible.",
+        "resultType": {
+          "id": 4,
+          "unit": "meters"
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "firstName": "Grace",
+    "lastName": "Kim",
+    "birthDate": "1994-06-11",
+    "email": "grace.kim@example.com",
+    "phone": "89012345",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Female",
+    "club": {
+      "id": 9,
+      "name": "Dallas Hurdles Club",
+      "address": {
+        "id": 9,
+        "street": "Hurdle St",
+        "streetNumber": 505,
+        "city": "Dallas",
+        "zipCode": "75201",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 9,
+        "name": "400m Hurdles",
+        "description": "A track race where athletes must jump over hurdles placed at intervals.",
+        "resultType": {
+          "id": 1,
+          "unit": "seconds"
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "firstName": "Henry",
+    "lastName": "Lopez",
+    "birthDate": "1996-02-19",
+    "email": "henry.lopez@example.com",
+    "phone": "90123456",
+    "ageGroup": {
+      "id": 1,
+      "name": "Senior",
+      "minAge": 18,
+      "maxAge": 35
+    },
+    "gender": "Male",
+    "club": {
+      "id": 10,
+      "name": "San Jose Relay Club",
+      "address": {
+        "id": 10,
+        "street": "Relay Rd",
+        "streetNumber": 606,
+        "city": "San Jose",
+        "zipCode": "95101",
+        "country": "USA"
+      }
+    },
+    "disciplines": [
+      {
+        "id": 10,
+        "name": "Relay Race",
+        "description": "A track event where teams of runners compete against each other by running consecutive segments of a race.",
+        "resultType": {
+          "id": 1,
+          "unit": "seconds"
+        }
+      }
+    ]
+  }
+]

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { ParticipantDto, DisciplineDto } from '../../types'
 import ApiClient from '../../api/ApiClient'
-import DisciplineTable from './DisciplineTable'
 import { Link } from 'react-router-dom'
 
 const apiClient = new ApiClient<ParticipantDto>(localStorage.getItem('token') ?? '')
@@ -21,9 +20,9 @@ export default function ParticipantTable() {
     return <div className="flex justify-center items-center h-24">Loading...</div>
   }
 
-  const handleAddDiscipline = (discipline: DisciplineDto) => {
-    setSelectedDisciplines([...selectedDisciplines, discipline])
-  }
+  // const handleAddDiscipline = (discipline: DisciplineDto) => {
+  //   setSelectedDisciplines([...selectedDisciplines, discipline])
+  // }
 
   const handleRemoveDiscipline = (discipline: DisciplineDto) => {
     setSelectedDisciplines(selectedDisciplines.filter((d) => d.id !== discipline.id))
@@ -54,7 +53,11 @@ export default function ParticipantTable() {
               <td>{participant.phone}</td>
               <td>{participant.ageGroup?.name}</td>
               <td>
-                <DisciplineTable onAddDiscipline={handleAddDiscipline} onRemoveDiscipline={handleRemoveDiscipline} />
+                {participant.disciplines?.map((discipline) => (
+                  <span key={discipline.id} className="badge badge-primary mr-2">
+                    {discipline.name}
+                  </span>
+                ))}
               </td>
               <td>
                 <Link to={`/participants/${participant.id}`} className="btn btn-primary btn-sm mr-2">
